@@ -2,6 +2,8 @@
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{amsmath}
+\usepackage[style=numeric, backend=biber]{biblatex}
+\addbibresource{References.bib}
 
 \title{Students' Grade Performance Based on Lifestyle and Health Factors}
 \author{Guilherme Cruz & João Piedade}
@@ -19,8 +21,8 @@ Our report will begin with a Problem Formulation section, where we will clearly 
 In the Results section, we will present the outcomes derived from our models, followed by an in-depth analysis. Finally, the key findings will be synthesized and summarized in the Conclusion section.
 
 \section{Problem Formulation}
-\quad Our problem consists on understand how student's lifestyle and health factors affect their academic performance, so will use supervised learning models.
-This study examines this problem and will try to answer and to come up with a connection between the student's lifestyle and health factors with their academic performances. We used a dataset from Kaggle that includes a combination of categorical and continuous variables, which influenced our choice of machine learning models.
+\quad Our problem consists on \cite{ibm_what_2023} understand how student's lifestyle and health factors affect their academic performance, so will use supervised learning models.
+This study examines this problem and will try to answer \cite{archana_which_nodate}and to come up with a connection between the student's lifestyle and health factors with their academic performances. We used a dataset from Kaggle that includes a combination of categorical and continuous variables, which influenced our choice of machine learning models.
 
 
 Each datapoint represents a student and includes features related to their lifestyle. These features consist of Hours Studied, Class Attendance, Access to Resources, Previous Test Scores, Parental Involvement, and Extracurricular Activities. For our analysis, we chose to focus on features that relate more closely to lifestyle and health, specifically Parental Involvement, Extracurricular Activities, Sleep Hours, Physical Activity, and Peer Influence.
@@ -69,7 +71,7 @@ A key factor in the performance of SVC is the hinge loss function, which plays a
 
 In this equation, \(y_i\) represents the true label of the data point, and \(f(x_i)\) is the output of the model for that data point. The hinge loss penalizes misclassifications and encourages correct classifications to be made with a margin. Specifically, the loss is zero when the prediction is correct and lies beyond the margin (i.e., \(y_i \cdot f(x_i) > 1\)). However, as soon as a prediction falls within the margin or is incorrect, the loss increases, leading to adjustments in the model.
 
-The use of hinge loss allows SVC to focus not just on correctly classifying points but also on maximizing the margin, ultimately contributing to the model’s robustness. Given the results of our model comparison, it appears that SVC's ability to effectively utilize hinge loss, alongside the kernel trick for managing non-linear relationships, provides a significant advantage over Random Forest in this context.
+The use of hinge loss allows SVC to focus not just on correctly classifying points but also on maximizing the margin, ultimately contributing to the model’s robustness. Given the results of our model comparison (Fig , it appears that SVC's ability to effectively utilize hinge loss, alongside the kernel trick for managing non-linear relationships, provides a significant advantage over Random Forest in this context.
 
 
 \begin{figure}
@@ -78,5 +80,10 @@ The use of hinge loss allows SVC to focus not just on correctly classifying poin
     \caption{Model Accuracy Comparison}
     \label{fig:enter-label}
 \end{figure}
+
+\section{Appendix}
+\printbibliography
+
+https://github.com/guilhermecruz760/Aalto-Machine-Learning-Project
 
 \end{document}
