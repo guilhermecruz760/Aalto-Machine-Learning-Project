@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import LabelEncoder
@@ -27,10 +27,6 @@ for column in ['Parental_Involvement', 'Extracurricular_Activities', 'Peer_Influ
     X[column] = le.fit_transform(X[column])
     label_encoders[column] = le
 
-# Check for missing values
-print("Missing values before imputation:")
-print(X.isnull().sum())
-
 # Implement K-Fold Cross-Validation
 kf = KFold(n_splits=10, shuffle=True, random_state=1)
 
@@ -47,7 +43,7 @@ for train_index, val_index in kf.split(X):
     y_train, y_val = y.iloc[train_index], y.iloc[val_index]
 
     # Train the model
-    model = RandomForestClassifier(random_state=1)
+    model = SVC(kernel='linear', random_state=1)
     model.fit(X_train, y_train)
 
     # Make predictions
@@ -62,7 +58,7 @@ for train_index, val_index in kf.split(X):
     mean_absolute_error = np.sum(absolute_error) / len(y_val)
 
     # Custom accuracy (within 10% error)
-    threshold = 0.10
+    threshold = 0.1
     percentage_error = np.abs((y_val - y_pred) / y_val)
     accuracy = np.mean(percentage_error < threshold) * 100
 
