@@ -32,7 +32,7 @@ print("Missing values before imputation:")
 print(X.isnull().sum())
 
 # Implement K-Fold Cross-Validation
-kf = KFold(n_splits=5, shuffle=True, random_state=1)
+kf = KFold(n_splits=10, shuffle=True, random_state=1)
 
 mae_scores = []
 mse_scores = []
